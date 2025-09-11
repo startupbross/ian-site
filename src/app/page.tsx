@@ -51,46 +51,49 @@ export default function Home() {
       );
     }
 
-  // --- Phase 2: Manifesto + Chat + CTA persistent ---
-  return (
-    <main className={styles.container}>
-      <div className={styles.blackScreen}>
-        <Manifesto onFinish={() => setManifestoDone(true)} />
+// --- Phase 2: Manifesto + Chat + CTA persistent ---
+return (
+  <main className={styles.container}>
+    <div className={styles.blackScreen}>
+      <div className={styles.phaseTwoLayout}>
+        {/* Manifesto takes available vertical space */}
+        <div className={styles.manifestoArea}>
+          <Manifesto onFinish={() => setManifestoDone(true)} />
+        </div>
 
+        {/* Chat naturally sits at bottom */}
         {manifestoDone && (
-          <>
-            {/* IAN logo top-left */}
-            <motion.img
-              src="/logos/ianlogo.svg"
-              alt="IAN Logo"
-              className={styles.ianLogo}
-              initial={{ y: -80, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            />
-
-            {/* 24h City Clock top-right */}
-            <CityClock />
-
-            {/* ChatPanel */}
-            <div className={styles.chatOverlay}>
-              <ChatPanel onOpen={() => {}} forceOpen />
-            </div>
-          </>
+          <div className={styles.chatArea}>
+            <ChatPanel onOpen={() => {}} forceOpen />
+          </div>
         )}
       </div>
 
-      {/* CTA persists across states */}
-      <div className={styles.ctaFixed}>
-        <CTAButton
-          clicked={ctaClicked}
-          onClick={() => setCtaClicked(true)}
-          onReset={() => {
-            setCtaClicked(false);
-            setManifestoDone(false);
-          }}
-        />
-      </div>
-    </main>
-  );
+      {manifestoDone && (
+        <>
+          <motion.img
+            src="/logos/ianlogo.svg"
+            alt="IAN Logo"
+            className={styles.ianLogo}
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          />
+          <CityClock />
+        </>
+      )}
+    </div>
+
+    <div className={styles.ctaFixed}>
+      <CTAButton
+        clicked={ctaClicked}
+        onClick={() => setCtaClicked(true)}
+        onReset={() => {
+          setCtaClicked(false);
+          setManifestoDone(false);
+        }}
+      />
+    </div>
+  </main>
+);
 }

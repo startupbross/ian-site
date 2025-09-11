@@ -5,6 +5,8 @@
   height: 100vh;
   background: black;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Scene (Canvas) */
@@ -27,24 +29,28 @@
   z-index: 10;
 }
 
-/* Manifesto */
-.manifesto {
-  margin: 15vh auto 0;
-  max-width: 900px;
-  text-align: center;
-  color: white;
-  font-size: 1.5rem;
-  line-height: 1.6;
-  padding: 0 2rem;
+/* Phase 2 main content */
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* manifesto above, chat below */
+  height: 100%;
+  padding: 0 1rem;
+  z-index: 5;
 }
 
-/* Chat */
-.chat {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+/* Manifesto wrapper */
+.manifestoWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 10vh;
+}
+
+/* Chat wrapper */
+.chatWrapper {
+  margin-bottom: 6vh; /* ensures spacing above CTA */
   display: flex;
   justify-content: center;
 }
@@ -72,18 +78,6 @@
   z-index: 50;
 }
 
-/* Chat overlay */
-.chatOverlay {
-  position: absolute;
-  bottom: 5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 10;
-}
-
 /* Logo */
 .ianLogo {
   position: fixed;
@@ -95,11 +89,15 @@
 }
 
 /* --- Responsive adjustments --- */
+
+/* Tablets */
 @media (max-width: 1024px) {
-  .manifesto {
-    max-width: 700px;
-    font-size: 1.25rem;
-    margin: 12vh auto 0;
+  .manifestoWrapper {
+    margin-top: 8vh;
+  }
+
+  .chatWrapper {
+    margin-bottom: 5vh;
   }
 
   .ianLogo {
@@ -107,22 +105,19 @@
   }
 }
 
+/* Large phones */
 @media (max-width: 768px) {
-  .manifesto {
-    max-width: 90%;
-    font-size: 1.1rem;
-    line-height: 1.4;
-    margin: 10vh auto 0;
-    padding: 0 1rem;
-    text-align: left; /* ✅ improves readability on mobile */
+  .manifestoWrapper {
+    margin-top: 7vh;
+    padding: 0 0.5rem;
+  }
+
+  .chatWrapper {
+    margin-bottom: 4.5vh;
   }
 
   .ctaFixed {
     bottom: 3vh;
-  }
-
-  .chatOverlay {
-    bottom: 3.5rem;
   }
 
   .ianLogo {
@@ -132,14 +127,17 @@
   }
 }
 
+/* Small phones */
 @media (max-width: 480px) {
-  .manifesto {
-    font-size: 1rem;
-    line-height: 1.35;
-    margin: 8vh auto 0;
+  .manifestoWrapper {
+    margin-top: 6vh;
+  }
+
+  .chatWrapper {
+    margin-bottom: 4vh;
   }
 
   .ianLogo {
-    width: 30px;
+    width: 28px;
   }
 }

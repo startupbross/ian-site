@@ -7,6 +7,7 @@
   color: white;
   position: relative;
   top: 13vh;
+  word-break: break-word; /* 👈 ensures long words/logos never overflow */
 }
 
 .word {
@@ -30,16 +31,17 @@
   display: inline-block;
   vertical-align: middle;
   margin: 0 4px;
+  max-height: 1.2em; /* 👈 logos scale consistently with text */
 }
 
 .stanfordLogo {
-  width: 4em;
-  height: auto;
+  width: auto;
+  height: 1.2em; /* scale with font-size instead of fixed width */
 }
 
 .mitLogo {
-  width: 1.5em;
-  height: auto;
+  width: auto;
+  height: 1em;
 }
 
 .paragraph {
@@ -51,17 +53,10 @@
 /* Tablets (≤1024px) */
 @media (max-width: 1024px) {
   .container {
-    font-size: 24px;   /* shrink text */
-    top: 10vh;         /* lift a bit */
-    max-width: 70%;    /* more breathing room */
-  }
-
-  .stanfordLogo {
-    width: 3.5em;
-  }
-
-  .mitLogo {
-    width: 1.3em;
+    font-size: 24px;
+    top: 10vh;
+    max-width: 70%;
+    line-height: 1.5;
   }
 }
 
@@ -69,17 +64,13 @@
 @media (max-width: 768px) {
   .container {
     font-size: 20px;
-    line-height: 1.5;   /* improve readability */
+    line-height: 1.5;
     max-width: 85%;
     top: 8vh;
   }
 
-  .stanfordLogo {
-    width: 3em;
-  }
-
-  .mitLogo {
-    width: 1.2em;
+  .logo {
+    max-height: 1.1em;
   }
 }
 
@@ -88,15 +79,12 @@
   .container {
     font-size: 16px;
     line-height: 1.6;
-    max-width: 90%;
+    max-width: 92%;
     top: 6vh;
+    padding: 0 1rem; /* 👈 prevent text hugging edges */
   }
 
-  .stanfordLogo {
-    width: 2.5em;
-  }
-
-  .mitLogo {
-    width: 1em;
+  .logo {
+    max-height: 1em;
   }
 }
