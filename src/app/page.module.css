@@ -1,0 +1,145 @@
+/* Base container */
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  overflow: hidden;
+}
+
+/* Scene (Canvas) */
+.scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* UI overlay */
+.uiLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Manifesto */
+.manifesto {
+  margin: 15vh auto 0;
+  max-width: 900px;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  padding: 0 2rem;
+}
+
+/* Chat */
+.chat {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* CTA */
+.ctaWrapper {
+  position: absolute;
+  bottom: 15vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+.ctaUnderChat {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaFixed {
+  position: fixed;
+  bottom: 5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+}
+
+/* Chat overlay */
+.chatOverlay {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Logo */
+.ianLogo {
+  position: fixed;
+  top: 1.3rem;
+  left: 1.3rem;
+  width: 50px;
+  height: auto;
+  z-index: 40;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 1024px) {
+  .manifesto {
+    max-width: 700px;
+    font-size: 1.25rem;
+    margin: 12vh auto 0;
+  }
+
+  .ianLogo {
+    width: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .manifesto {
+    max-width: 90%;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin: 10vh auto 0;
+    padding: 0 1rem;
+    text-align: left; /* ✅ improves readability on mobile */
+  }
+
+  .ctaFixed {
+    bottom: 3vh;
+  }
+
+  .chatOverlay {
+    bottom: 3.5rem;
+  }
+
+  .ianLogo {
+    width: 36px;
+    top: 1rem;
+    left: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .manifesto {
+    font-size: 1rem;
+    line-height: 1.35;
+    margin: 8vh auto 0;
+  }
+
+  .ianLogo {
+    width: 30px;
+  }
+}

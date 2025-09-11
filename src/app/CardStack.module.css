@@ -1,0 +1,28 @@
+.cardStack {
+  display: inline-flex;      /* inline with text */
+  align-items: center;
+  vertical-align: middle;    /* align baseline with text */
+  margin: 0 4px;
+  line-height: 1;            /* don’t add extra spacing */
+}
+
+.dock {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: -20px;
+  position: relative;
+  width: auto;               /* shrink to fit */
+  height: auto;              /* shrink to fit */
+  overflow: visible;
+}
+
+.card {
+  width: 1.7em;   /* scale with font size */
+  height: 1.7em;
+  border-radius: 6px;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  transform-origin: bottom center;
+}

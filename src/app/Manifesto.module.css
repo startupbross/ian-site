@@ -1,0 +1,102 @@
+.container {
+  max-width: 60%;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 30px;
+  line-height: 1.4;
+  color: white;
+  position: relative;
+  top: 13vh;
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  vertical-align: middle;
+}
+
+/* Highlighted text colors */
+.blue {
+  color: #0095ff;
+  font-weight: 600;
+}
+
+.red {
+  color: #ff4d4d;
+  font-weight: 600;
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+}
+
+.stanfordLogo {
+  width: 4em;
+  height: auto;
+}
+
+.mitLogo {
+  width: 1.5em;
+  height: auto;
+}
+
+.paragraph {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Responsive tweaks --- */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .container {
+    font-size: 24px;   /* shrink text */
+    top: 10vh;         /* lift a bit */
+    max-width: 70%;    /* more breathing room */
+  }
+
+  .stanfordLogo {
+    width: 3.5em;
+  }
+
+  .mitLogo {
+    width: 1.3em;
+  }
+}
+
+/* Large phones (≤768px) */
+@media (max-width: 768px) {
+  .container {
+    font-size: 20px;
+    line-height: 1.5;   /* improve readability */
+    max-width: 85%;
+    top: 8vh;
+  }
+
+  .stanfordLogo {
+    width: 3em;
+  }
+
+  .mitLogo {
+    width: 1.2em;
+  }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .container {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 90%;
+    top: 6vh;
+  }
+
+  .stanfordLogo {
+    width: 2.5em;
+  }
+
+  .mitLogo {
+    width: 1em;
+  }
+}
