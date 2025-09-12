@@ -133,13 +133,15 @@
   100% { background-position: 0% 50%; }
 }
 
-/* --- Responsive Tweaks --- */
-
 /* Tablets */
 @media (max-width: 1024px) {
   .wrapper {
     bottom: 70px;
     max-width: 600px;
+  }
+  .chatBar {
+    padding: 8px;
+    min-height: 70px;   /* ✅ smaller than desktop */
   }
   .input {
     font-size: 15px;
@@ -150,12 +152,14 @@
 @media (max-width: 768px) {
   .wrapper {
     bottom: 60px;
-    max-width: 92%;       /* allow chips to wrap better */
+    max-width: 92%;
     padding: 0 0.75rem;
-    gap: 16px;            /* slightly less spacing */
+    gap: 14px;
   }
   .chatBar {
-    padding: 8px;         /* tighter on mobile */
+    padding: 6px;
+    min-height: 60px;   /* ✅ shrink bar on mobile */
+    border-radius: 10px;
   }
   .input {
     font-size: 14px;
@@ -163,12 +167,12 @@
   .chip {
     font-size: 13px;
     padding: 6px 12px;
-    flex: 1 1 auto;       /* ✅ let them wrap and resize */
-    text-align: center;   /* keep centered */
+    flex: 1 1 auto;
+    text-align: center;
   }
   .chips {
     gap: 10px;
-    justify-content: flex-start; /* ✅ left align for better wrapping */
+    justify-content: flex-start;
   }
 }
 
@@ -176,11 +180,14 @@
 @media (max-width: 480px) {
   .wrapper {
     bottom: 50px;
-    gap: 10px;
     max-width: 95%;
+    padding: 0 0.5rem;
+    gap: 10px;
   }
   .chatBar {
-    padding: 6px;
+    padding: 5px;
+    min-height: 55px;   /* ✅ compact for tiny screens */
+    border-radius: 8px;
   }
   .input {
     font-size: 13px;
@@ -188,15 +195,15 @@
   .chip {
     font-size: 12px;
     padding: 5px 10px;
-    flex: 1 1 45%;        /* ✅ forces 2 chips per row on tiny screens */
+    flex: 1 1 45%;      /* ✅ 2 chips per row on very small phones */
   }
   .chips {
     gap: 8px;
-    justify-content: center; /* ✅ center on very small screens */
+    justify-content: center;
   }
   .sendButton {
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
   }
 }
