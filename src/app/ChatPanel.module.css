@@ -141,7 +141,7 @@
   }
   .chatBar {
     padding: 8px;
-    min-height: 70px;   /* ✅ smaller than desktop */
+    height: 70px;   /* ✅ consistent height */
   }
   .input {
     font-size: 15px;
@@ -157,22 +157,22 @@
     gap: 14px;
   }
   .chatBar {
-    padding: 6px;
-    min-height: 60px;   /* ✅ shrink bar on mobile */
+    padding: 8px;
+    height: 65px;   /* ✅ fixed slim bar */
     border-radius: 10px;
   }
   .input {
     font-size: 14px;
   }
-  .chip {
-    font-size: 13px;
-    padding: 6px 12px;
-    flex: 1 1 auto;
-    text-align: center;
-  }
   .chips {
     gap: 10px;
-    justify-content: flex-start;
+    justify-content: center; /* ✅ center pills */
+  }
+  .chip {
+    font-size: 13px;
+    padding: 6px 14px;
+    flex: none;             /* ✅ stop stretching */
+    white-space: nowrap;    /* ✅ keep pill shape */
   }
 }
 
@@ -185,21 +185,22 @@
     gap: 10px;
   }
   .chatBar {
-    padding: 5px;
-    min-height: 55px;   /* ✅ compact for tiny screens */
+    padding: 6px;
+    height: 60px;   /* ✅ consistent height */
     border-radius: 8px;
   }
   .input {
     font-size: 13px;
   }
-  .chip {
-    font-size: 12px;
-    padding: 5px 10px;
-    flex: 1 1 45%;      /* ✅ 2 chips per row on very small phones */
-  }
   .chips {
     gap: 8px;
     justify-content: center;
+  }
+  .chip {
+    font-size: 12px;
+    padding: 5px 12px;
+    flex: none;             /* ✅ natural pill width */
+    white-space: nowrap;    /* ✅ no stretching */
   }
   .sendButton {
     width: 28px;
