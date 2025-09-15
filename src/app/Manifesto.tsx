@@ -4,14 +4,16 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import styles from "./Manifesto.module.css";
 import CardStack from "./CardStack"; // 👈 import
+ 
 
 export default function Manifesto({ onFinish }: { onFinish: () => void }) {
   const [firstDone, setFirstDone] = useState(false); // 👈 track paragraph 1
   const [hasAnimated, setHasAnimated] = useState(false);
 
+
   // Use \n\n for paragraph breaks
   const text = `
-In the beginning, there was one model. It was powerful but flawed. Then came more, each contradicting the last. The world drowned in noise and bias. IAN is the first to unify them, compare their visions, and reveal the truth hidden within contradiction.
+AI began with one model. It was fast, confident, and wrong. More followed, but they clashed and confused. The world was left with bias instead of clarity. IAN is the first system built to compare them all and deliver intelligence that can be trusted.
 
 From San Fransisco to Bangalore, IAN is powering the workflows of engineers at NASA , researchers from Stanford  and MIT , and creators shaping audiences of millions. Tomorrow’s intelligence won’t be locked in black boxes. It will be verified, transparent, and collective.
   `;

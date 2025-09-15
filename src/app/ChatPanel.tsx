@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, useAnimate } from "framer-motion";
 import styles from "./ChatPanel.module.css";
+import Link from "next/link";
 
 export default function ChatPanel({
   onOpen,
@@ -158,17 +159,26 @@ export default function ChatPanel({
             { label: "Search with IAN", href: "https://ian.directory" },
             { label: "News", href: "https://ian.directory/discover" },
             { label: "Research", href: "" },
-            { label: "Lenses", href: "" },
-            ].map((chip, i) => (
-            <a
-                key={i}
-                href={chip.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${styles.chip} ${chip.label === "Lenses" ? styles.lensesChip : ""}`}
-            >
-                {chip.label}
-            </a>
+            { label: "Lenses", href: "/lenses", internal: true }, // 👈 internal route
+            ].map((chip, i) =>
+              chip.internal ? (
+                <Link
+                  key={i}
+                  href={chip.href}
+                  className={`${styles.chip} ${chip.label === "Lenses" ? styles.lensesChip : ""}`}
+                >
+                  {chip.label}
+                </Link>
+              ) : (
+                <a
+                  key={i}
+                  href={chip.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.chip} ${chip.label === "Lenses" ? styles.lensesChip : ""}`}
+                >
+                  {chip.label}
+                </a>
             ))}
         </motion.div>
         )}

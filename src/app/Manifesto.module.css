@@ -31,12 +31,12 @@
   display: inline-block;
   vertical-align: middle;
   margin: 0 4px;
-  max-height: 1.2em; /* 👈 logos scale consistently with text */
+  max-height: 1em; /* 👈 logos scale consistently with text */
 }
 
 .stanfordLogo {
   width: auto;
-  height: 1.2em; /* scale with font-size instead of fixed width */
+  height: 1em; /* scale with font-size instead of fixed width */
 }
 
 .mitLogo {

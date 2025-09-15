@@ -133,15 +133,13 @@
   100% { background-position: 0% 50%; }
 }
 
+/* --- Responsive Tweaks --- */
+
 /* Tablets */
 @media (max-width: 1024px) {
   .wrapper {
     bottom: 70px;
     max-width: 600px;
-  }
-  .chatBar {
-    padding: 8px;
-    height: 70px;   /* ✅ consistent height */
   }
   .input {
     font-size: 15px;
@@ -152,27 +150,15 @@
 @media (max-width: 768px) {
   .wrapper {
     bottom: 60px;
-    max-width: 92%;
+    max-width: 90%;
     padding: 0 0.75rem;
-    gap: 14px;
-  }
-  .chatBar {
-    padding: 8px;
-    height: 65px;   /* ✅ fixed slim bar */
-    border-radius: 10px;
   }
   .input {
     font-size: 14px;
   }
-  .chips {
-    gap: 10px;
-    justify-content: center; /* ✅ center pills */
-  }
   .chip {
     font-size: 13px;
     padding: 6px 14px;
-    flex: none;             /* ✅ stop stretching */
-    white-space: nowrap;    /* ✅ keep pill shape */
   }
 }
 
@@ -180,31 +166,19 @@
 @media (max-width: 480px) {
   .wrapper {
     bottom: 50px;
+    gap: 12px;
     max-width: 95%;
-    padding: 0 0.5rem;
-    gap: 10px;
-  }
-  .chatBar {
-    padding: 6px;
-    height: 60px;   /* ✅ consistent height */
-    border-radius: 8px;
   }
   .input {
     font-size: 13px;
   }
-  .chips {
-    gap: 8px;
-    justify-content: center;
-  }
   .chip {
     font-size: 12px;
     padding: 5px 12px;
-    flex: none;             /* ✅ natural pill width */
-    white-space: nowrap;    /* ✅ no stretching */
   }
   .sendButton {
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
   }
 }

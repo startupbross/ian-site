@@ -20,48 +20,28 @@ export default function CTAButton({
       onClick={clicked ? onReset : onClick}
     >
       <div className={styles.left}>
-        {/* 👇 Equalizer replaces the "I" */}
-        {clicked && (
-          <div className={styles.equalizer}>
-            {[...Array(5)].map((_, i) => (
-              <motion.div
-                key={i}
-                className={styles.bar}
-                animate={{
-                  height: ["20%", "100%", "40%", "80%", "30%"],
-                }}
-                transition={{
-                  duration: 2 + Math.random() *2,
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                }}
-              />
-            ))}
-          </div>
-        )}
-
+        {clicked && <span className={styles.logoI}>I</span>}
         {clicked && <span className={styles.separator}></span>}
 
-        {/* Single span handles both texts */}
+        {/* Text */}
         <motion.span
-        className={`${styles.text} ${!clicked ? styles.state1 : ""}`}
-          layout="position"
+          className={`${styles.text} ${!clicked ? styles.state1 : ""}`} 
           animate={{ opacity: 1, scale: 1 }}
           initial={false}
-          transition={{ duration: 0.25, ease: "easeOut" }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
         >
           {clicked ? "Homebase" : "Explore"}
         </motion.span>
       </div>
 
-      {/* IconCircle on the right */}
-        <motion.span
+      {/* IconCircle */}
+      <motion.span
         className={styles.iconCircle}
         animate={{ rotate: clicked ? 45 : 0 }}
         transition={{ type: "spring", stiffness: 250, damping: 22 }}
-        >
-        +
-        </motion.span>
+      >
+        {clicked ? "×" : "+"}
+      </motion.span>
     </motion.div>
   );
 }

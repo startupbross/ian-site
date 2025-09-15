@@ -11,9 +11,8 @@
   cursor: pointer;
   user-select: none;
   min-width: fit-content;
-  height: 40px;
+  height: 40px;       /* 👈 fixed height */
   line-height: 1;
-  transition: all 0.3s ease; /* smooth scaling */
 }
 
 .separator {
@@ -49,7 +48,7 @@
 }
 
 .text.state1 {
-  margin-left: 12px;
+  margin-left: 12px; /* only when Explore is showing */
 }
 
 .equalizer {
@@ -65,48 +64,3 @@
   border-radius: 2px;
 }
 
-/* --- Responsive adjustments --- */
-@media (max-width: 768px) {
-  .cta {
-    height: 34px;
-    font-size: 0.9rem;
-    padding: 0 0.5rem;
-  }
-
-  .iconCircle {
-    width: 24px;
-    height: 24px;
-    font-size: 16px;
-  }
-
-  .text {
-    min-width: 65px; /* smaller to fit better */
-  }
-}
-
-@media (max-width: 480px) {
-  .cta {
-    height: 30px;
-    font-size: 0.8rem;
-    padding: 0 0.4rem;
-  }
-
-  .iconCircle {
-    width: 22px;
-    height: 22px;
-    font-size: 14px;
-  }
-
-  .text {
-    min-width: 55px;
-  }
-
-  .equalizer {
-    height: 14px; /* scale down */
-    gap: 2px;
-  }
-
-  .bar {
-    width: 1.5px;
-  }
-}
