@@ -18,7 +18,7 @@ function SpinningI() {
 
   return (
     <mesh ref={meshRef}>
-      <boxGeometry args={[.8, 5, .8]} />
+      <boxGeometry args={[1, 5, 1]} />
       <meshPhysicalMaterial
         transmission={1}
         thickness={1.0}

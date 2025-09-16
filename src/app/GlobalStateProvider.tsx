@@ -9,6 +9,10 @@ type GlobalState = {
   setCtaClicked: (value: boolean) => void;
   manifestoDone: boolean;
   setManifestoDone: (value: boolean) => void;
+  manifestoAnimated: boolean;
+  setManifestoAnimated: (value: boolean) => void;
+  manifestoPara1Done: boolean; // 👈 NEW
+  setManifestoPara1Done: (value: boolean) => void; // 👈 NEW
 };
 
 const GlobalStateContext = createContext<GlobalState | undefined>(undefined);
@@ -17,6 +21,8 @@ export function GlobalStateProvider({ children }: { children: ReactNode }) {
   const [loadingDone, setLoadingDone] = useState(false);
   const [ctaClicked, setCtaClicked] = useState(false);
   const [manifestoDone, setManifestoDone] = useState(false);
+  const [manifestoAnimated, setManifestoAnimated] = useState(false);
+  const [manifestoPara1Done, setManifestoPara1Done] = useState(false); // 👈 NEW
 
   return (
     <GlobalStateContext.Provider
@@ -27,6 +33,10 @@ export function GlobalStateProvider({ children }: { children: ReactNode }) {
         setCtaClicked,
         manifestoDone,
         setManifestoDone,
+        manifestoAnimated,
+        setManifestoAnimated,
+        manifestoPara1Done,    // 👈 NEW
+        setManifestoPara1Done, // 👈 NEW
       }}
     >
       {children}

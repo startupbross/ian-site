@@ -18,6 +18,7 @@ export default function Home() {
     setCtaClicked,
     manifestoDone,
     setManifestoDone,
+    manifestoAnimated, // 👈 new
   } = useGlobalState();
 
   const handleReset = () => {
@@ -25,6 +26,7 @@ export default function Home() {
     setManifestoDone(false);
   };
 
+  // --- Phase 0: Loader ---
   if (!loadingDone) {
     return (
       <main className={styles.container}>
@@ -36,6 +38,7 @@ export default function Home() {
     );
   }
 
+  // --- Phase 1: Home (3D "I" + CTA) ---
   if (!ctaClicked) {
     return (
       <main className={styles.container}>
@@ -54,12 +57,13 @@ export default function Home() {
     );
   }
 
+  // --- Phase 2: Manifesto + Persistent UI ---
   return (
     <main className={styles.container}>
       <div className={styles.blackScreen}>
         <Manifesto onFinish={() => setManifestoDone(true)} />
 
-        {manifestoDone && (
+        {manifestoAnimated && ( // 👈 use manifestoAnimated instead of manifestoDone
           <>
             <motion.img
               src="/logos/ianlogo.svg"
