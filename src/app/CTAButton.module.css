@@ -1,3 +1,4 @@
+
 .cta {
   display: flex;
   align-items: center;
@@ -11,9 +12,10 @@
   cursor: pointer;
   user-select: none;
   min-width: fit-content;
-  height: 40px;       /* 👈 fixed height */
+  height: 40px;
   line-height: 1;
 }
+
 
 .separator {
   width: 0.8px;
@@ -44,23 +46,20 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.15);
   margin-left: 0.75rem;
-  font-size: 18px; /* ensure + stays visible */
 }
 
 .text.state1 {
-  margin-left: 12px; /* only when Explore is showing */
+  margin-left: 12px; /* 👈 tweak this value until it looks perfect */
 }
-
 .equalizer {
   display: flex;
   align-items: flex-end;
   gap: 3px;
-  height: 18px;
+  height: 18px; /* total height of equalizer */
 }
 
 .bar {
   width: 2px;
-  background: linear-gradient(180deg, #a4f1fc, #0b005d);
+  background: linear-gradient(180deg, #a4f1fc, #0b005d); /* AI gradient */
   border-radius: 2px;
 }
-
