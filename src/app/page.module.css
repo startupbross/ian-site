@@ -139,7 +139,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.5); /* translucent black box */
+  background: rgba(0, 0, 0, 0); /* translucent black box */
   padding: 1.5rem 2rem;           /* space around text */
   border-radius: 12px;            /* smooth corners */
   max-width: 800px;
