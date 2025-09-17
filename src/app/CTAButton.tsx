@@ -15,8 +15,11 @@ export default function CTAButton({
   return (
     <motion.div
       className={`${styles.cta} ${clicked ? styles.clicked : ""}`}
-      layout
-      transition={{ type: "spring", stiffness: 250, damping: 22 }}
+      animate={{
+        width: clicked ? 180 : 120,   // 👈 explicit morph between sizes
+        height: 40                    // keep height locked
+      }}
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }} // 👈 smooth stretch
       onClick={clicked ? onReset : onClick}
     >
       <div className={styles.left}>
