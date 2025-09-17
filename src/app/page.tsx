@@ -50,7 +50,7 @@ export default function Home() {
             muted
             playsInline
           >
-            <source src="/videos/homescreen1.mp4" type="video/mp4" />          </video>
+            <source src="/videos/homescreentest1.mp4" type="video/mp4" />          </video>
 
           <div className={styles.scene}>
             {/* <GlassI /> */}
