@@ -123,20 +123,6 @@
   z-index: 10;
 }
 
-.heroText {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-size: 2.5rem;
-  font-weight: 600;
-  max-width: 800px;
-  text-align: center;   /* ✅ center the lines */
-  line-height: 1.6;
-  padding: 0 1rem;
-  z-index: 5;
-}
 
 .videoOverlay {
   position: absolute;
@@ -146,4 +132,25 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.45); /* darken video */
   z-index: 1;
+}
+
+.heroTextBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5); /* translucent black box */
+  padding: 1.5rem 2rem;           /* space around text */
+  border-radius: 12px;            /* smooth corners */
+  max-width: 800px;
+  text-align: center;
+  z-index: 5;
+}
+
+.heroText {
+  color: white;
+  font-size: 1rem;   /* smaller */
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 0;          /* ✅ remove default paragraph margins */
 }

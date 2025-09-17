@@ -8,7 +8,7 @@ import LoadingScreen from "./LoadingScreen";
 import CTAButton from "./CTAButton";
 import CityClock from "./CityClock";
 import styles from "./page.module.css";
-import { useGlobalState } from "./GlobalStateProvider"; 
+import { useGlobalState } from "./GlobalStateProvider";
 import { useState, useEffect } from "react";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
     setManifestoDone(false);
   };
 
-  // ✅ Always declare hooks at the top level
+  // ✅ Declare hooks ONCE, at top level
   const [index, setIndex] = useState(0);
   const paragraphs = [
     "Giving one AI too much power is risky.",
@@ -71,17 +71,19 @@ export default function Home() {
         {/* 🔥 Dark overlay for readability */}
         <div className={styles.videoOverlay}></div>
 
-        {/* 🔥 Centered hero text */}
-        <motion.p
-          key={index}
-          className={styles.heroText}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.8 }}
-        >
-          {paragraphs[index]}
-        </motion.p>
+        {/* 🔥 Centered hero text with translucent box */}
+        <div className={styles.heroTextBox}>
+          <motion.p
+            key={index} // forces re-render on text change
+            className={styles.heroText}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.8 }}
+          >
+            {paragraphs[index]}
+          </motion.p>
+        </div>
 
         {/* 🔥 CTA fixed at bottom */}
         <div className={styles.ctaFixed}>
