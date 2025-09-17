@@ -27,19 +27,24 @@ export default function Home() {
     setManifestoDone(false);
   };
 
-  // ✅ Declare hooks ONCE, at top level
+  // ✅ Paragraph cycling state
   const [index, setIndex] = useState(0);
   const paragraphs = [
-    "Giving one AI too much power is risky.",
+    "Trusting one perspective is dangerous.",
     "We made IAN because intelligence is better together. IAN’s collective intelligence combines and compares multiple AI and human perspectives into one simple answer.",
   ];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev: number) => (prev + 1) % paragraphs.length);
-    }, 12000); // ✅ switch every 12s
-    return () => clearInterval(interval);
-  }, [paragraphs.length]);
+    let timer: NodeJS.Timeout;
+
+    if (index === 0) {
+      timer = setTimeout(() => setIndex(1), 12000); // first paragraph: 12s
+    } else {
+      timer = setTimeout(() => setIndex(0), 15000); // second paragraph: 15s
+    }
+
+    return () => clearTimeout(timer);
+  }, [index]);
 
   // --- Phase 0: Loader ---
   if (!loadingDone) {
@@ -102,7 +107,6 @@ export default function Home() {
     <main className={styles.container}>
       <div className={styles.blackScreen}>
         {/* <Manifesto onFinish={() => setManifestoDone(true)} /> */}
-
         {true && (
           <>
             {/* {manifestoAnimated && (use this if you want it back)} */}

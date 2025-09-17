@@ -45,14 +45,14 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
 .subtitle {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.666);
   margin-bottom: 2rem;
 }
 
@@ -90,16 +90,18 @@
   opacity: 0.7;
 }
 
-/* Waitlist Box */
 .waitlistBox {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);  /* higher opacity */
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 16px;
   padding: 1.5rem;
   width: 100%;
   max-width: 500px;
   text-align: left;
   margin-bottom: 2rem;
+
+  backdrop-filter: blur(12px);           /* 🔥 adds the blur */
+  -webkit-backdrop-filter: blur(12px);   /* 🔥 Safari support */
 }
 
 .waitlistTitle {
@@ -118,10 +120,13 @@
 .inputRow {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12); /* slightly stronger */
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 12px;
   overflow: hidden;
+
+  backdrop-filter: blur(10px);           
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .input {

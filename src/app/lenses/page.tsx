@@ -39,7 +39,7 @@ export default function LensesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Revolicon
+          Your link-in-bio, powered by IAN
         </motion.h1>
 
         {/* Subtitle */}
@@ -49,8 +49,9 @@ export default function LensesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Beautifully crafted open source icons.
-        </motion.p>
+        IAN Lenses transform your bio link into an interactive, monetizable feed that works harder for you     
+        
+           </motion.p>
 
         {/* Social Row */}
         <div className={styles.socialRow}>
