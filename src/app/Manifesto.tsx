@@ -18,7 +18,7 @@ const { manifestoPara1Done, setManifestoPara1Done } = useGlobalState();
   const text = `
 Every AI sees the world differently. One favors speed, another safety, another reason. Alone they are biased. Together they are noise. IAN is the first to unify them into one clear perspective.
 
-From San Fransisco to Bangalore, IAN is powering the workflows of engineers at NASA , researchers from Stanford  and MIT , and creators shaping audiences of millions. Tomorrow’s intelligence won’t be locked in black boxes. It will be verified, transparent, and collective.
+IAN powers the workflows of engineers at NASA , researchers from Stanford  and MIT , and creators shaping audiences of millions. Tomorrow’s intelligence won’t be locked in black boxes. It will be verified, transparent, and collective.
   `;
 
   const paragraphs = text.trim().split("\n\n");

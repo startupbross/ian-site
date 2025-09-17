@@ -3,8 +3,19 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background: black;
+  background: transparent; /* 🔥 transparent so video shows */
   overflow: hidden;
+}
+
+/* Black screen overlay (Phase 2 only) */
+.blackScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black; /* ✅ only here */
+  z-index: 0;
 }
 
 /* Scene (Canvas) */
@@ -94,52 +105,12 @@
   z-index: 40;
 }
 
-/* --- Responsive adjustments --- */
-@media (max-width: 1024px) {
-  .manifesto {
-    max-width: 700px;
-    font-size: 1.25rem;
-    margin: 12vh auto 0;
-  }
-
-  .ianLogo {
-    width: 42px;
-  }
-}
-
-@media (max-width: 768px) {
-  .manifesto {
-    max-width: 90%;
-    font-size: 1.1rem;
-    line-height: 1.4;
-    margin: 10vh auto 0;
-    padding: 0 1rem;
-    text-align: left; /* ✅ improves readability on mobile */
-  }
-
-  .ctaFixed {
-    bottom: 3vh;
-  }
-
-  .chatOverlay {
-    bottom: 3.5rem;
-  }
-
-  .ianLogo {
-    width: 36px;
-    top: 1rem;
-    left: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .manifesto {
-    font-size: 1rem;
-    line-height: 1.35;
-    margin: 8vh auto 0;
-  }
-
-  .ianLogo {
-    width: 30px;
-  }
+.videoBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the screen */
+  z-index: -1;       /* stays behind everything */
 }

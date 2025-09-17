@@ -38,24 +38,34 @@ export default function Home() {
     );
   }
 
-  // --- Phase 1: Home (3D "I" + CTA) ---
-  if (!ctaClicked) {
-    return (
-      <main className={styles.container}>
-        <div className={styles.scene}>
-          <GlassI />
-        </div>
+ // --- Phase 1: Home (3D "I" + CTA) ---
+    if (!ctaClicked) {
+      return (
+        <main className={styles.container}>
+          {/* 🔥 Fullscreen video background */}
+          <video
+            className={styles.videoBackground}
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/lenses-bg.mp4" type="video/mp4" />          </video>
 
-        <div className={styles.ctaFixed}>
-          <CTAButton
-            clicked={false}
-            onClick={() => setCtaClicked(true)}
-            onReset={handleReset}
-          />
-        </div>
-      </main>
-    );
-  }
+          <div className={styles.scene}>
+            {/* <GlassI /> */}
+          </div>
+
+          <div className={styles.ctaFixed}>
+            <CTAButton
+              clicked={false}
+              onClick={() => setCtaClicked(true)}
+              onReset={handleReset}
+            />
+          </div>
+        </main>
+      );
+    }
 
   // --- Phase 2: Manifesto + Persistent UI ---
   return (

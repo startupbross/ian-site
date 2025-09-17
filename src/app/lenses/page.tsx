@@ -8,7 +8,7 @@ export default function LensesPage() {
       {/* Background video */}
       <video
         className={styles.video}
-        src="/lenses-bg.mp4"
+        src="/videos/homescreentest.mp4"
         autoPlay
         loop
         muted
