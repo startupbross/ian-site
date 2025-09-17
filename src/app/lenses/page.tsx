@@ -65,7 +65,7 @@ export default function LensesPage() {
         <div className={styles.waitlistBox}>
           <h3 className={styles.waitlistTitle}>Join the waitlist</h3>
           <p className={styles.waitlistSubtitle}>
-            Sign up to be one of the first to use Revolicon.
+            Sign up to be one of the first to use Lenses.
           </p>
           <div className={styles.inputRow}>
             <input
@@ -79,8 +79,8 @@ export default function LensesPage() {
 
         {/* Footer credits */}
         <div className={styles.footer}>
-          Designer <span>Emirhan Ugurlu</span> + Developer{" "}
-          <span>Berk Altıok</span>
+          Designer <span>Brett Rennie</span> + Developer{" "}
+          <span>Jacob Antony</span>
         </div>
       </div>
     </main>

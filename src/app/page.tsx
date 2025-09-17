@@ -27,6 +27,9 @@ export default function Home() {
     setManifestoDone(false);
   };
 
+  // ✅ Track if it's the very first run
+  const [firstTime, setFirstTime] = useState(true);
+
   // ✅ Paragraph cycling state
   const [index, setIndex] = useState(0);
   const paragraphs = [
@@ -35,16 +38,25 @@ export default function Home() {
   ];
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: NodeJS.Timeout | null = null;
 
-    if (index === 0) {
-      timer = setTimeout(() => setIndex(1), 12000); // first paragraph: 12s
+    if (index === 0 && firstTime) {
+      // First time showing paragraph 0 → 12s
+      timer = setTimeout(() => {
+        setIndex(1);
+        setFirstTime(false); // ✅ after first run, switch to normal timing
+      }, 12000);
     } else {
-      timer = setTimeout(() => setIndex(0), 15000); // second paragraph: 15s
+      // After first time → alternate 15s for both
+      timer = setTimeout(() => {
+        setIndex((prev) => (prev === 0 ? 1 : 0));
+      }, 15000);
     }
 
-    return () => clearTimeout(timer);
-  }, [index]);
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [index, firstTime]);
 
   // --- Phase 0: Loader ---
   if (!loadingDone) {
