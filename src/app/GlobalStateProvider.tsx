@@ -11,8 +11,8 @@ type GlobalState = {
   setManifestoDone: (value: boolean) => void;
   manifestoAnimated: boolean;
   setManifestoAnimated: (value: boolean) => void;
-  manifestoPara1Done: boolean; // 👈 NEW
-  setManifestoPara1Done: (value: boolean) => void; // 👈 NEW
+  manifestoPara1Done: boolean; //
+  setManifestoPara1Done: (value: boolean) => void; //
 };
 
 const GlobalStateContext = createContext<GlobalState | undefined>(undefined);
