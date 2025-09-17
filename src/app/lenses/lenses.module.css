@@ -30,22 +30,64 @@
 
 .title {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: 1rem;
+  max-width: 800px;   /* ✅ keep it from stretching too wide */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .subtitle {
-  font-size: 1.25rem;
-  max-width: 600px;
+  font-size: 1.5rem;
+  max-width: 700px;   /* ✅ slightly narrower for readability */
   line-height: 1.5;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.darkOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45); /* ✅ adjust opacity for darkness */
+  z-index: 1;
+}
+
+.overlay {
+  position: relative;
+  z-index: 2; /* ✅ sits above the dark layer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.5rem;
+    max-width: 90%; /* ✅ adapt width */
+  }
+  .subtitle {
+    font-size: 1.25rem;
+    max-width: 85%;
+  }
 }
 
 /* Mobile tweaks */
 @media (max-width: 768px) {
   .title {
     font-size: 2rem;
+    max-width: 95%;
   }
   .subtitle {
     font-size: 1rem;
+    max-width: 90%;
   }
 }
