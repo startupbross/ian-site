@@ -3,7 +3,7 @@
   display: inline-block;
   padding: 1px; /* thickness of gradient border */
   border-radius: 9999px;
-  background: linear-gradient(270deg, #ff00ff, #00ffff, #ffcc00, #ff0066);
+  background: linear-gradient(270deg, #fffbff, #878787, #ffffff, #838383);
   background-size: 600% 600%;
   animation: gradientGlow 8s ease infinite;
 }

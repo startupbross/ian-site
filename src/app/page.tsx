@@ -18,16 +18,12 @@ export default function Home() {
 
   // ✅ Paragraph cycling state
   const [index, setIndex] = useState(0);
-  const paragraphs = [
-    "Trusting one perspective is dangerous.",
-    "We made IAN because intelligence is better together. IAN’s collective intelligence combines and compares multiple AI and human perspectives into one simple answer.",
-  ];
 
   useEffect(() => {
     let timer: NodeJS.Timeout | null = null;
 
     if (index === 0 && firstTime) {
-      // First time showing paragraph 0 → 12s
+      // First time showing paragraph 0 → 6s
       timer = setTimeout(() => {
         setIndex(1);
         setFirstTime(false);
@@ -77,15 +73,27 @@ export default function Home() {
           <div className={styles.heroTextBox}>
             <motion.p
               key={index}
-              className={`${styles.heroText} ${
-                index === 0 ? styles.heroTextRed : styles.heroTextGreen
-              }`}
+              className={styles.heroText}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8 }}
             >
-              {paragraphs[index]}
+              {index === 0 ? (
+                <>
+                  Trusting one perspective is{" "}
+                  <span style={{ color: "red" }}>dangerous</span>.
+                </>
+              ) : (
+                <>
+                  We made IAN because{" "}
+                  <span style={{ color: "lightgreen" }}>
+                    intelligence is better together
+                  </span>
+                  . IAN’s collective intelligence combines and compares multiple
+                  AI and human perspectives into one simple answer.
+                </>
+              )}
             </motion.p>
           </div>
         </>
