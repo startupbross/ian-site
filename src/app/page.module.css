@@ -153,9 +153,26 @@
 }
 
 .heroText {
-  color: white;
-  font-size: 1.2rem;      /* keep smaller, cinematic feel */
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.6;
   margin: 0;
+  text-align: center;
+  color: white; /* fallback */
+}
+
+/* 🔴 Paragraph 1 → faint red gradient */
+.heroTextRed {
+  background: linear-gradient(90deg, #ffffff 70%, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* ✅ correct */
+  background-clip: text; /* for Firefox */
+}
+
+/* 🟢 Paragraph 2 → faint green gradient */
+.heroTextGreen {
+  background: linear-gradient(90deg, #ffffff 70%, #66ff66);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* ✅ correct */
+  background-clip: text; /* for Firefox */
 }

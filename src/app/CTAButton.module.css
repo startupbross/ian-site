@@ -1,4 +1,14 @@
+/* Wrapper with gradient border */
+.ctaWrapper {
+  display: inline-block;
+  padding: 1px; /* thickness of gradient border */
+  border-radius: 9999px;
+  background: linear-gradient(270deg, #ff00ff, #00ffff, #ffcc00, #ff0066);
+  background-size: 600% 600%;
+  animation: gradientGlow 8s ease infinite;
+}
 
+/* The actual button */
 .cta {
   display: flex;
   align-items: center;
@@ -6,16 +16,22 @@
   background: #1a1a1a;
   color: white;
   border-radius: 9999px;
-  padding: 0 0.75rem;
+  padding: 0 1rem;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   user-select: none;
+  height: 44px;
   min-width: fit-content;
-  height: 40px;
-  line-height: 1;
+  transition: all 0.2s ease;
 }
 
+/* Glow animation */
+@keyframes gradientGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 .separator {
   width: 0.8px;

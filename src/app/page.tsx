@@ -30,8 +30,8 @@ export default function Home() {
       // First time showing paragraph 0 → 12s
       timer = setTimeout(() => {
         setIndex(1);
-        setFirstTime(false); 
-      }, 12000);
+        setFirstTime(false);
+      }, 6000);
     } else {
       // After first time → alternate 15s for both
       timer = setTimeout(() => {
@@ -77,7 +77,9 @@ export default function Home() {
           <div className={styles.heroTextBox}>
             <motion.p
               key={index}
-              className={styles.heroText}
+              className={`${styles.heroText} ${
+                index === 0 ? styles.heroTextRed : styles.heroTextGreen
+              }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
