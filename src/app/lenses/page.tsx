@@ -2,9 +2,20 @@
 
 import styles from "./lenses.module.css";
 import { motion } from "framer-motion";
-import { FaTwitter, FaGithub, FaGlobe } from "react-icons/fa"; // ✅ social icons
+import { FaTwitter, FaGithub, FaGlobe } from "react-icons/fa";
+import CTAButton from "../CTAButton"; // ✅ import CTA
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function LensesPage() {
+  const router = useRouter();
+  const [ctaClicked, setCtaClicked] = useState(true); // ✅ start as clicked since we’re already on lenses
+
+  const handleCTA = () => {
+    setCtaClicked(false);
+    router.push("/"); // ✅ go back to homepage
+  };
+
   return (
     <main className={styles.container}>
       {/* Background video */}
@@ -39,8 +50,8 @@ export default function LensesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Your link-in-bio, powered by IAN
-        </motion.h1>
+          Each person sees the world uniquely       
+          </motion.h1>
 
         {/* Subtitle */}
         <motion.p
@@ -49,23 +60,17 @@ export default function LensesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-        IAN Lenses transform your bio link into an interactive, monetizable feed that works harder for you     
-        
-           </motion.p>
+          IAN lenses are human curated  perspective in IANs collective intelligence network that help users discover social content and monetize their uniquely human outlooks.
 
-        {/* Social Row */}
-        <div className={styles.socialRow}>
-          <button className={styles.followButton}>Follow us</button>
-          <FaTwitter className={styles.icon} />
-          <FaGithub className={styles.icon} />
-          <FaGlobe className={styles.icon} />
-        </div>
+        </motion.p>
+
+     
 
         {/* Waitlist Box */}
         <div className={styles.waitlistBox}>
           <h3 className={styles.waitlistTitle}>Join the waitlist</h3>
           <p className={styles.waitlistSubtitle}>
-            Sign up to be one of the first to use Lenses.
+            Post your lens via a lens-in-bio link and start getting paid for your perspective.
           </p>
           <div className={styles.inputRow}>
             <input
@@ -77,11 +82,16 @@ export default function LensesPage() {
           </div>
         </div>
 
-        {/* Footer credits */}
-        <div className={styles.footer}>
-          Designer <span>Brett Rennie</span> + Developer{" "}
-          <span>Jacob Antony</span>
-        </div>
+       
+      </div>
+
+      {/* ✅ CTA fixed at bottom */}
+      <div className={styles.ctaFixed}>
+        <CTAButton
+          clicked={ctaClicked}
+          onClick={handleCTA}
+          onReset={handleCTA}
+        />
       </div>
     </main>
   );

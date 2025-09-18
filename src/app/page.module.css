@@ -137,13 +137,6 @@
     rgba(0, 0, 0, 0.8) 100%
   );
 
-  /* ✅ Subtle vignette for cinema look */
-  box-shadow: inset 0 0 250px rgba(0, 0, 0, 0.9);
-
-  /* ✅ Sharpen video underneath */
-  backdrop-filter: contrast(1.4) saturate(1.2);
-
-  z-index: 1;
 }
 
 .heroTextBox {
@@ -165,10 +158,4 @@
   font-weight: 500;
   line-height: 1.6;
   margin: 0;
-
-  /* ✅ Cinematic glow + shadow */
-  text-shadow:
-    0 0 2px rgba(255, 255, 255, 0.6),   /* soft glow */
-    0 0 16px rgba(255, 255, 255, 0.4),  /* extended glow */
-    0 2px 4px rgba(0, 0, 0, 0.7);       /* grounding shadow */
 }

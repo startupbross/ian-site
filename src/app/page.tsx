@@ -1,31 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import GlassI from "./GlassI";
-import ChatPanel from "./ChatPanel";
-import Manifesto from "./Manifesto";
-import LoadingScreen from "./LoadingScreen";
 import CTAButton from "./CTAButton";
-import CityClock from "./CityClock";
 import styles from "./page.module.css";
-import { useGlobalState } from "./GlobalStateProvider";
 import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation"; // ✅ router + path
 
 export default function Home() {
-  const {
-    loadingDone,
-    setLoadingDone,
-    ctaClicked,
-    setCtaClicked,
-    manifestoDone,
-    setManifestoDone,
-    manifestoAnimated,
-  } = useGlobalState();
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const handleReset = () => {
-    setCtaClicked(false);
-    setManifestoDone(false);
-  };
+  // ✅ Track CTA clicked state
+  const [ctaClicked, setCtaClicked] = useState(false);
 
   // ✅ Track if it's the very first run
   const [firstTime, setFirstTime] = useState(true);
@@ -44,7 +30,7 @@ export default function Home() {
       // First time showing paragraph 0 → 12s
       timer = setTimeout(() => {
         setIndex(1);
-        setFirstTime(false); // ✅ after first run, switch to normal timing
+        setFirstTime(false); 
       }, 12000);
     } else {
       // After first time → alternate 15s for both
@@ -58,91 +44,60 @@ export default function Home() {
     };
   }, [index, firstTime]);
 
-  // --- Phase 0: Loader ---
-  if (!loadingDone) {
-    return (
-      <main className={styles.container}>
-        <div className={styles.scene}>
-          <GlassI />
-        </div>
-        <LoadingScreen onFinish={() => setLoadingDone(true)} />
-      </main>
-    );
-  }
+  // ✅ Handle CTA click
+  const handleCTA = () => {
+    if (pathname === "/") {
+      // Go to lenses page
+      setCtaClicked(true);
+      router.push("/lenses");
+    } else {
+      // Go back home
+      setCtaClicked(false);
+      router.push("/");
+    }
+  };
 
-  // --- Phase 1: Home (Video + Overlay + Text + CTA) ---
-  if (!ctaClicked) {
-    return (
-      <main className={styles.container}>
-        {/* 🔥 Fullscreen video background */}
-        <video
-          className={styles.videoBackground}
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="/videos/lenses-bg.mp4" type="video/mp4" />
-        </video>
-
-        {/* 🔥 Dark overlay for readability */}
-        <div className={styles.videoOverlay}></div>
-
-        {/* 🔥 Centered hero text with translucent box */}
-        <div className={styles.heroTextBox}>
-          <motion.p
-            key={index} // forces re-render on text change
-            className={styles.heroText}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.8 }}
-          >
-            {paragraphs[index]}
-          </motion.p>
-        </div>
-
-        {/* 🔥 CTA fixed at bottom */}
-        <div className={styles.ctaFixed}>
-          <CTAButton
-            clicked={false}
-            onClick={() => setCtaClicked(true)}
-            onReset={handleReset}
-          />
-        </div>
-      </main>
-    );
-  }
-
-  // --- Phase 2: Manifesto + Persistent UI ---
   return (
     <main className={styles.container}>
-      <div className={styles.blackScreen}>
-        {/* <Manifesto onFinish={() => setManifestoDone(true)} /> */}
-        {true && (
-          <>
-            {/* {manifestoAnimated && (use this if you want it back)} */}
-            <motion.img
-              src="/logos/ianlogo.svg"
-              alt="IAN Logo"
-              className={styles.ianLogo}
-              initial={{ y: -80, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            />
-            <CityClock />
-            <div className={styles.chatOverlay}>
-              <ChatPanel onOpen={() => {}} forceOpen />
-            </div>
-          </>
-        )}
-      </div>
+      {/* ✅ Only show video/paragraphs if on home page */}
+      {pathname === "/" && (
+        <>
+          <video
+            className={styles.videoBackground}
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/lenses-bg.mp4" type="video/mp4" />
+          </video>
 
+          <div className={styles.videoOverlay}></div>
+
+          <div className={styles.heroTextBox}>
+            <motion.p
+              key={index}
+              className={styles.heroText}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.8 }}
+            >
+              {paragraphs[index]}
+            </motion.p>
+          </div>
+        </>
+      )}
+
+      {/* ✅ CTA fixed at bottom (works for both states) */}
       <div className={styles.ctaFixed}>
         <CTAButton
           clicked={ctaClicked}
-          onClick={() => setCtaClicked(true)}
-          onReset={handleReset}
+          onClick={handleCTA}
+          onReset={() => {
+            setCtaClicked(false);
+            router.push("/");
+          }}
         />
       </div>
     </main>
