@@ -2,18 +2,17 @@
 
 import styles from "./lenses.module.css";
 import { motion } from "framer-motion";
-import { FaTwitter, FaGithub, FaGlobe } from "react-icons/fa";
-import CTAButton from "../CTAButton"; // ✅ import CTA
+import CTAButton from "../CTAButton"; 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function LensesPage() {
   const router = useRouter();
-  const [ctaClicked, setCtaClicked] = useState(true); // ✅ start as clicked since we’re already on lenses
+  const [ctaClicked, setCtaClicked] = useState(true); // start as clicked since we’re already on lenses
 
   const handleCTA = () => {
     setCtaClicked(false);
-    router.push("/"); // ✅ go back to homepage
+    router.push("/"); // go back to homepage
   };
 
   return (
@@ -50,8 +49,8 @@ export default function LensesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Each person sees the world uniquely       
-          </motion.h1>
+          Each person sees the world uniquely
+        </motion.h1>
 
         {/* Subtitle */}
         <motion.p
@@ -60,32 +59,46 @@ export default function LensesPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          IAN lenses are human curated  perspective in IANs collective intelligence network that help users discover social content and monetize their uniquely human outlooks.
-
+          IAN Lenses are human-curated perspectives in IAN’s collective
+          intelligence network that help users discover social content and
+          monetize their uniquely human outlooks.
         </motion.p>
 
-     
-
         {/* Waitlist Box */}
-        <div className={styles.waitlistBox}>
+        <motion.form
+          action="https://formspree.io/f/mwpndydk" // ✅ your real Formspree ID
+          method="POST"
+          className={styles.waitlistBox}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <h3 className={styles.waitlistTitle}>Join the waitlist</h3>
           <p className={styles.waitlistSubtitle}>
-            Post your lens via a lens-in-bio link and start getting paid for your perspective.
+            Post your lens via a lens-in-bio link and start getting paid for your
+            perspective.
           </p>
           <div className={styles.inputRow}>
             <input
               type="email"
+              name="email"
               placeholder="Email address"
               className={styles.input}
+              aria-label="Email address"
+              required
             />
-            <button className={styles.arrowButton}>→</button>
+            <button 
+              type="submit" 
+              className={styles.arrowButton} 
+              aria-label="Submit email to waitlist"
+            >
+              →
+            </button>
           </div>
-        </div>
-
-       
+        </motion.form>
       </div>
 
-      {/* ✅ CTA fixed at bottom */}
+      {/* CTA fixed at bottom */}
       <div className={styles.ctaFixed}>
         <CTAButton
           clicked={ctaClicked}
