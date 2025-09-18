@@ -168,9 +168,3 @@
   background-clip: text;
 }
 
-.heroTextGreen {
-  background: linear-gradient(90deg, #ffffff 30%, #66ff66);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}

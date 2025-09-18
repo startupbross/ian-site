@@ -82,12 +82,12 @@ export default function Home() {
               {index === 0 ? (
                 <>
                   Trusting one perspective is{" "}
-                  <span style={{ color: "red" }}>dangerous</span>.
+                  <span className={styles.heroTextRed}>dangerous</span>.
                 </>
               ) : (
                 <>
                   We made IAN because{" "}
-                  <span style={{ color: "lightgreen" }}>
+                  <span className={styles.heroTextGreen}>
                     intelligence is better together
                   </span>
                   . IAN’s collective intelligence combines and compares multiple
